@@ -13,6 +13,7 @@ app.use(cors()); // enable cors for all origins
 let server    	= http.createServer(app);
 
 let socketsIO = io(server, {
+    path: '/-/multiplex/socket',
     cors: {
         origin: "*",
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS" ],
@@ -21,7 +22,7 @@ let socketsIO = io(server, {
 });
 
 let opts = {
-    port: process.env.PORT || 1948,
+    port: process.env.PORT || 8000,
     baseDir : process.cwd()
 };
 
